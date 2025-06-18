@@ -2,19 +2,16 @@ import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
-    // 1) injecteer de stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/react-chat-widget/lib/styles.css';
     document.head.appendChild(link);
 
-    // 2) laad de widget script
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/react-chat-widget@latest/dist/index.js';
     script.async = true;
     document.body.appendChild(script);
 
-    // 3) init de widget als hij geladen is
     script.onload = () => {
       window.Widget.init({
         endpoint: 'https://neviorassistant.com/api/query',
